@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import CoinCard from "./components/CoinCard";
 
 // API endpoint: fetches top 10 coins by market cap in USD
 const API_URL =
@@ -59,14 +60,15 @@ const App = () => {
     <div>
       <h1>🚀 Crypto Dash</h1>
       {loading && <p>Loading...</p>}
-      {error && <p style={{ color: "crimson" }}>Error: {error}</p>}
-      <ul>
-        {coins.map((coin) => (
-          <li key={coin.id}>
-            {coin.name} ({coin.symbol.toUpperCase()}): ${coin.current_price}
-          </li>
-        ))}
-      </ul>
+      {error && <div className="error">{error}</div>}
+
+      {!loading && !error && (
+        <main className="grid">
+          {coins.map((coin) => (
+            <CoinCard key={coin.id} coin={coin} />
+          ))}
+        </main>
+      )}
     </div>
   );
 };
