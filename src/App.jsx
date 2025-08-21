@@ -2,13 +2,7 @@ import { useState, useEffect } from "react";
 import CoinCard from "./components/CoinCard";
 
 // API endpoint: fetches top 10 coins by market cap in USD
-const API_URL =
-  "https://api.coingecko.com/api/v3/coins/markets?" +
-  "vs_currency=usd&" +
-  "order=market_cap_desc&" +
-  "per_page=10&" +
-  "page=1&" +
-  "sparkline=false";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const App = () => {
   const [coins, setCoins] = useState([]); // store fetched coins
@@ -19,7 +13,9 @@ const App = () => {
     // Async function to fetch coin data
     const fetchCoins = async () => {
       try {
-        const res = await fetch(API_URL);
+        const res = await fetch(
+          `${API_URL}&order=market_cap_desc&per_page=10&page=1&sparkline=false"`
+        );
         if (!res.ok) throw new Error("failed to fetch data");
         const data = await res.json();
         console.log(data);
