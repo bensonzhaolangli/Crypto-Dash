@@ -28,29 +28,7 @@ const App = () => {
     };
 
     fetchCoins();
-
-    fetch(API_URL, {
-      headers: {
-        "x-cg-demo-api-key": import.meta.env.VITE_CG_KEY,
-      },
-      cache: "no-store", // avoid 304 cache issues
-    })
-      .then((res) => {
-        if (!res.ok)
-          throw new Error(`Failed to fetch data (status ${res.status})`);
-        return res.json();
-      })
-      .then((data) => {
-        console.log("Data:", data);
-        setCoins(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Fetch error:", err);
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
+  }, [limit]);
 
   return (
     <div>
