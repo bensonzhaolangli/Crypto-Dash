@@ -61,3 +61,24 @@ a {
 .positive {
   color: #4caf50;
 }
+
+/* Limit Select */
+.controls {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 0.75rem;
+}
+
+.controls label {
+  font-weight: bold;
+}
+
+.controls select {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: #1c1f26;
+  color: white;
+  border: none;
+}
