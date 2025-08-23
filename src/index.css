@@ -119,3 +119,22 @@ a {
   color: #fff;
   font-size: 1rem;
 }
+
+/* About Pg */
+.about {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #161b22;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.about h1 {
+  margin-bottom: 1rem;
+}
+
+.about p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
