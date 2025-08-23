@@ -34,19 +34,31 @@ const App = () => {
     fetchCoins();
   }, [limit]);
 
+  const filteredCoins = coins.filter((coin) => {
+    return (
+      coin.name.toLowerCase().includes(filter.toLowerCase()) ||
+      coin.symbol.toLowerCase().includes(filter.toLowerCase())
+    );
+  });
+
   return (
     <div>
-      <h1>🚀 Crypto Dash</h1>
+      <h1>Crypto Dash</h1>
       {loading && <p>Loading...</p>}
       {error && <div className="error">{error}</div>}
 
-      <LimitSelector limit={limit} onLimitChange={setLimit} />
+      <div className="top-controls">
+        <FilterInput filter={filter} onFilterChange={setFilter} />
+        <LimitSelector limit={limit} onLimitChange={setLimit} />
+      </div>
 
       {!loading && !error && (
         <main className="grid">
-          {coins.map((coin) => (
-            <CoinCard key={coin.id} coin={coin} />
-          ))}
+          {filteredCoins.length > 0 ? (
+            filteredCoins.map((coin) => <CoinCard key={coin.id} coin={coin} />)
+          ) : (
+            <p>No matching coins</p>
+          )}
         </main>
       )}
     </div>
