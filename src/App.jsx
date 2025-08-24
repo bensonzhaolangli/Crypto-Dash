@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router";
 import Header from "./components/Header";
 import HomePage from "./pages/home";
 import AboutPage from "./pages/about";
+import NotFound from './pages/not-found';
 
 // API endpoint: fetches top 10 coins by market cap in USD
 const API_URL = import.meta.env.VITE_API_URL;
@@ -57,6 +58,7 @@ const App = () => {
           }
         />
         <Route path="/about" element={<AboutPage />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </>
   );
