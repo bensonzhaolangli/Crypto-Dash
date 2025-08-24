@@ -66,6 +66,25 @@ a {
   color: #f44336;
 }
 
+/* Header */
+.top-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.top-nav a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.top-nav a:hover {
+  color: #4090db;
+}
+
 /* Top Controls */
 .top-controls {
   display: flex;

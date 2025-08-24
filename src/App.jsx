@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import HomePage from "./pages/home";
 import { Routes, Route } from "react-router";
+import Header from "./components/Header";
+import HomePage from "./pages/home";
 import AboutPage from "./pages/about";
 
 // API endpoint: fetches top 10 coins by market cap in USD
@@ -36,25 +37,28 @@ const App = () => {
   }, [limit]);
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <HomePage
-            coins={coins}
-            filter={filter}
-            setFilter={setFilter}
-            limit={limit}
-            setLimit={setLimit}
-            sortBy={sortBy}
-            setSortBy={setSortBy}
-            loading={loading}
-            error={error}
-          />
-        }
-      />
-      <Route path="/about" element={<AboutPage />} /> 
-    </Routes>
+    <>
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage
+              coins={coins}
+              filter={filter}
+              setFilter={setFilter}
+              limit={limit}
+              setLimit={setLimit}
+              sortBy={sortBy}
+              setSortBy={setSortBy}
+              loading={loading}
+              error={error}
+            />
+          }
+        />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
+    </>
   );
 };
 
