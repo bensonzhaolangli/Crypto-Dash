@@ -3,7 +3,8 @@ import { Routes, Route } from "react-router";
 import Header from "./components/Header";
 import HomePage from "./pages/home";
 import AboutPage from "./pages/about";
-import NotFound from './pages/not-found';
+import NotFound from "./pages/not-found";
+import CoinDetails from './pages/coin-details';
 
 // API endpoint: fetches top 10 coins by market cap in USD
 const API_URL = import.meta.env.VITE_API_URL;
@@ -25,7 +26,7 @@ const App = () => {
         );
         if (!res.ok) throw new Error("failed to fetch data");
         const data = await res.json();
-        console.log(data);
+
         setCoins(data);
       } catch (err) {
         setError(err.message);
@@ -58,7 +59,8 @@ const App = () => {
           }
         />
         <Route path="/about" element={<AboutPage />} />
-        <Route path='*' element={<NotFound />} />
+        <Route path='/coin/:id' element={<CoinDetails />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
