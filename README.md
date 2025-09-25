@@ -1,12 +1,25 @@
-# React + Vite
+# Crypto Dash
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Demo:** https://crypto-dash-inky.vercel.app/
 
-Currently, two official plugins are available:
+A React app that pulls live crypto market data from CoinGecko. Browse the top coins, filter by name/symbol, sort by market cap/price/24h change, adjust how many results you see, and click into a coin for a full details page with a price-history chart.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Filter** coins by name or ticker (e.g., BTC, ETH)
+- **Sort** by market cap, price, or 24h change (asc/desc)
+- **Details page** at `/coin/:id` with rich stats & links
+- **Price chart** (market history) powered by Chart.js
+- Built with **React + Vite**
 
-## Expanding the ESLint configuration
+- **Filter** Track specific coins, display sentiments based on social media data
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+- React, Vite
+- react-router-dom (routing)
+- react-chartjs-2, Chart.js, chartjs-adapter-date-fns (charts)
+- CoinGecko API
+
+## Roadmap
+- Social sentiment overlay on coin details
+- Pagination
+- Allow users to add coins to 'Favorites', for tracking and alerts
